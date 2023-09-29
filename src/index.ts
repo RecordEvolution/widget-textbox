@@ -1,1 +1,1 @@
-export { ReLineChart } from './ReLineChart.js';
+export { WidgetLinechart } from './WidgetLinechart.js';

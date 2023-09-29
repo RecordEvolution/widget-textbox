@@ -45,7 +45,7 @@ declare global {
   }
 
 }
-export class ReLineChart extends LitElement {
+export class WidgetLinechart extends LitElement {
   
   @property() inputData = {} as InputData
 
