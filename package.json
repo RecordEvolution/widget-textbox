@@ -9,7 +9,7 @@
   "module": "dist/src/index.js",
   "exports": {
     ".": "./dist/src/index.js",
-    "./re-line-chart.js": "./dist/src/re-line-chart.js"
+    "./widget-linechart.js": "./dist/src/widget-linechart.js"
   },
   "scripts": {
     "analyze": "cem analyze --litelement",

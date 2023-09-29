@@ -12,7 +12,7 @@ npm i re-line-chart
 
 ```html
 <script type="module">
-  import 're-line-chart/re-line-chart.js';
+  import 're-line-chart/widget-linechart.js';
 </script>
 
 <re-line-chart></re-line-chart>
