@@ -1,8 +1,8 @@
 {
-  "name": "re-line-chart",
-  "description": "Webcomponent re-line-chart following open-wc recommendations",
+  "name": "widget-linechart",
+  "description": "Webcomponent widget-linechart following open-wc recommendations",
   "license": "MIT",
-  "author": "re-line-chart",
+  "author": "widget-linechart",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/src/index.js",

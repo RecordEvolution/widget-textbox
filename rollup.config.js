@@ -6,10 +6,10 @@ import babel from "@rollup/plugin-babel";
 export default {
     // if you use createSpaConfig, you can use your index.html as entrypoint,
     // any <script type="module"> inside will be bundled by rollup
-    input: './src/re-line-chart.ts',
+    input: './src/widget-linechart.ts',
     output: {
         dir: './dist',
-        name: 're-line-chart_bundle',
+        name: 'widget-linechart_bundle',
         banner: `/* @license Copyright (c) 2020 Record Evolution GmbH. All rights reserved.*/`,
         format: 'esm'
     },

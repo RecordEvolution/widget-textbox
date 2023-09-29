@@ -1,21 +1,21 @@
-# \<re-line-chart>
+# \<widget-linechart>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i re-line-chart
+npm i widget-linechart
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 're-line-chart/widget-linechart.js';
+  import 'widget-linechart/widget-linechart.js';
 </script>
 
-<re-line-chart></re-line-chart>
+<widget-linechart></widget-linechart>
 ```
 ## Expected data format
 
