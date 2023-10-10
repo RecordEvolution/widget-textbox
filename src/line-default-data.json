@@ -1,0 +1,35 @@
+{
+    "settings": {
+      "title": "this is the title",
+      "subTitle": "This the Sub title"
+    },
+    "dataseries": [
+        {
+            "id": "10000",
+            "label": "Line Chart",
+            "seriesOptions": {
+              "color": "#000",
+              "chartType": "dots",
+              "style": {
+                "point": {
+                  "radius": 4,
+                  "pointStyle": "rectRounded",
+                  "backgroundColor": "#A076F9",
+                  "borderColor": "#D7BBF5",
+                  "borderWidth": 2
+                },
+                "line": {
+                  "backgroundColor": "#e60e5d",
+                  "borderColor": "#D7BBF5",
+                  "borderWidth": 2,
+                  "fill": false
+                }
+              }
+            },
+            "data": [{
+              "x": 40,
+              "y": 60
+            }]
+          }
+    ]
+  }
