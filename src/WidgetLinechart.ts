@@ -318,11 +318,6 @@ export class WidgetLinechart extends LitElement {
     width: 100%;
   }
   div#wrapper {
-    background: var(--re-line-background-color, #eaeaea);
-    padding: 16px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     max-width: 800px;
     width: 100%;
   }
