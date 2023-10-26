@@ -318,7 +318,6 @@ export class WidgetLinechart extends LitElement {
     width: 100%;
   }
   div#wrapper {
-    max-width: 800px;
     width: 100%;
   }
   header {
@@ -348,7 +347,7 @@ export class WidgetLinechart extends LitElement {
           <h3>${this.lineTitle}</h3>
           <p>${this.lineDescription}</p>
         </header>
-        <canvas id="lineChart" width="468"></canvas>
+        <canvas id="lineChart" height="250"></canvas>
       </div>
     `;
   }
