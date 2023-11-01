@@ -172,8 +172,8 @@ export class WidgetLinechart extends LitElement {
       this.minTime = this.getMinValue(minTimeArray).toISOString()
 
     } else {
-      // Single Series Data
-        this.data = this.inputData.dataseries[0].data
+        // Single Series Data
+        this.data = this.inputData.dataseries[0].data ? this.inputData.dataseries[0].data  : []
         this.id = this.inputData.dataseries[0].id ? this.inputData.dataseries[0].id : this.id
         this.label = this.inputData.dataseries[0].label ? this.inputData.dataseries[0].label : this.label
         this.chartType = this.inputData.dataseries[0].seriesOptions.chartType ? this.inputData.dataseries[0].seriesOptions.chartType : this.chartType
@@ -228,6 +228,12 @@ export class WidgetLinechart extends LitElement {
             }),
           ),
         );
+        
+        //@ts-ignore
+        if(minDate == 'Invalid Date') {
+          console.error('Invalid Date')
+          return
+        }
         this.minTime = minDate.toISOString()
 
         this.datasets.push(mergedData)
