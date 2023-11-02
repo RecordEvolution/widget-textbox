@@ -318,14 +318,14 @@ export class WidgetLinechart extends LitElement {
   static styles = css`
   :host {
     display: inline-block;
-    margin: 16px;
     color: var(--re-line-text-color, #000);
     font-family: sans-serif;
-    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    position: relative;
+    margin: auto;
   }
-  div#wrapper {
-    width: 100%;
-  }
+
   header {
     display: flex;
     flex-direction: column;
@@ -348,13 +348,11 @@ export class WidgetLinechart extends LitElement {
 
   render() {
     return html`
-      <div id="wrapper">
         <header>
           <h3>${this.lineTitle}</h3>
           <p>${this.lineDescription}</p>
         </header>
-        <canvas id="lineChart" height="250"></canvas>
-      </div>
+        <canvas id="lineChart"></canvas>
     `;
   }
 
