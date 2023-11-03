@@ -282,7 +282,7 @@ export class WidgetLinechart extends LitElement {
             datasets: this.datasets
           },
           options: {
-            animation: false,
+            responsive: true,
             animations: {
               "colors": false,
               "x": false,
