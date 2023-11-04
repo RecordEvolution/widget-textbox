@@ -6,10 +6,10 @@
     "dataseries": [
         {
             "id": "10000",
-            "label": "Line Chart",
+            "label": "Demo Line",
             "seriesOptions": {
               "color": "#000",
-              "chartType": "dots",
+              "chartType": "line",
               "style": {
                 "point": {
                   "radius": 4,
