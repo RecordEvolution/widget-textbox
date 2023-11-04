@@ -77,7 +77,7 @@ export class WidgetLinechart extends LitElement {
 
   createLineChart() {
 
-    if(this.inputData && (!this.inputData?.settings?.title || !this.inputData?.dataseries.length)) return
+    if(!this?.inputData?.settings?.title || !this?.inputData?.dataseries.length) return
 
     if(this.inputData?.dataseries.length > 1) {
       // Multiple Series
@@ -85,17 +85,17 @@ export class WidgetLinechart extends LitElement {
 
       for(const i of this.inputData?.dataseries) {
         // Style point
-        const radius = this.inputData?.dataseries[0].seriesOptions?.style?.point?.radius ? this.inputData.dataseries[0].seriesOptions.style.point.radius : this.radius
-        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ? this.inputData.dataseries[0].seriesOptions.style.point.pointStyle : this.pointStyle
-        const pointBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.backgroundColor ? this.inputData.dataseries[0].seriesOptions.style.point.backgroundColor : this.pointBackgroundColor
-        const pointBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderColor ? this.inputData.dataseries[0].seriesOptions.style.point.borderColor : this.pointBorderColor
-        const pointBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderWidth ? this.inputData.dataseries[0].seriesOptions.style.point.borderWidth : this.pointBorderWidth
+        const radius = this.inputData?.dataseries[0].seriesOptions?.style?.point?.radius ?? this.radius
+        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ?? this.pointStyle
+        const pointBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.backgroundColor ?? this.pointBackgroundColor
+        const pointBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderColor ?? this.pointBorderColor
+        const pointBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderWidth ?? this.pointBorderWidth
 
         // Style line
-        const lineBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.backgroundColor ? this.inputData.dataseries[0].seriesOptions.style.line.backgroundColor : this.lineBackgroundColor
-        const lineBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderColor ? this.inputData.dataseries[0].seriesOptions.style.line.borderColor : this.lineBorderColor
-        const lineBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderWidth ? this.inputData.dataseries[0].seriesOptions.style.line.borderWidth : this.lineBorderWidth
-        const fill = this.inputData?.dataseries[0].seriesOptions?.style?.line?.fill ? this.inputData.dataseries[0].seriesOptions.style.line.fill : this.fill
+        const lineBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.backgroundColor ?? this.lineBackgroundColor
+        const lineBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderColor ?? this.lineBorderColor
+        const lineBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderWidth ?? this.lineBorderWidth
+        const fill = this.inputData?.dataseries[0].seriesOptions?.style?.line?.fill ?? this.fill
 
         let dataseriesStyle;
 
@@ -138,20 +138,20 @@ export class WidgetLinechart extends LitElement {
         this.data = this.inputData.dataseries[0].data ? this.inputData.dataseries[0].data  : []
         this.id = this.inputData.dataseries[0].id ? this.inputData.dataseries[0].id : this.id
         this.label = this.inputData.dataseries[0].label ? this.inputData.dataseries[0].label : this.label
-        this.chartType = this.inputData.dataseries[0].seriesOptions.chartType ? this.inputData.dataseries[0].seriesOptions.chartType : this.chartType
+        this.chartType = this.inputData.dataseries[0].seriesOptions.chartType ?? this.chartType
 
         // Style point
-        const radius = this.inputData?.dataseries[0].seriesOptions?.style?.point?.radius ? this.inputData.dataseries[0].seriesOptions.style.point.radius : this.radius
-        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ? this.inputData.dataseries[0].seriesOptions.style.point.pointStyle : this.pointStyle
-        const pointBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.backgroundColor ? this.inputData.dataseries[0].seriesOptions.style.point.backgroundColor : this.pointBackgroundColor
-        const pointBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderColor ? this.inputData.dataseries[0].seriesOptions.style.point.borderColor : this.pointBorderColor
-        const pointBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderWidth ? this.inputData.dataseries[0].seriesOptions.style.point.borderWidth : this.pointBorderWidth
+        const radius = this.inputData?.dataseries[0].seriesOptions?.style?.point?.radius ?? this.radius
+        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ? this.pointStyle
+        const pointBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.backgroundColor ?? this.pointBackgroundColor
+        const pointBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderColor ?? this.pointBorderColor
+        const pointBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderWidth ?? this.pointBorderWidth
 
         // Style line
-        const lineBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.backgroundColor ? this.inputData.dataseries[0].seriesOptions.style.line.backgroundColor : this.lineBackgroundColor
-        const lineBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderColor ? this.inputData.dataseries[0].seriesOptions.style.line.borderColor : this.lineBorderColor
-        const lineBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderWidth ? this.inputData.dataseries[0].seriesOptions.style.line.borderWidth : this.lineBorderWidth
-        const fill = this.inputData?.dataseries[0].seriesOptions?.style?.line?.fill ? this.inputData.dataseries[0].seriesOptions.style.line.fill : this.fill
+        const lineBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.backgroundColor ?? this.lineBackgroundColor
+        const lineBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderColor ?? this.lineBorderColor
+        const lineBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.line?.borderWidth ?? this.lineBorderWidth
+        const fill = this.inputData?.dataseries[0].seriesOptions?.style?.line?.fill ?? this.fill
 
         let dataseriesStyle;
 
@@ -203,8 +203,8 @@ export class WidgetLinechart extends LitElement {
     }
 
     // Generel
-    this.lineTitle = this.inputData.settings.title ? this.inputData.settings.title : this.lineTitle
-    this.lineDescription = this.inputData.settings.subTitle ? this.inputData.settings.subTitle : this.lineDescription
+    this.lineTitle = this.inputData.settings.title ?? this.lineTitle
+    this.lineDescription = this.inputData.settings.subTitle ?? this.lineDescription
 
   }
 
