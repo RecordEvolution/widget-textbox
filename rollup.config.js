@@ -6,7 +6,10 @@ import babel from "@rollup/plugin-babel";
 export default {
     // if you use createSpaConfig, you can use your index.html as entrypoint,
     // any <script type="module"> inside will be bundled by rollup
-    input: './src/widget-linechart.ts',
+    input: ['./src/widget-linechart.ts'],
+    treeshake: {
+        moduleSideEffects: false
+    },
     output: {
         dir: './dist',
         name: 'widget-linechart_bundle',
@@ -14,7 +17,7 @@ export default {
         format: 'esm'
     },
     plugins: [
-        typescript({ sourceMap: true }),
+        typescript(),
         nodeResolve(),
         commonjs({}),
         babel({ babelHelpers: 'bundled' })

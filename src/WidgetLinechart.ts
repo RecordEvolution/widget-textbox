@@ -1,53 +1,15 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import Chart from 'chart.js/auto';
+// import 'chartjs-adapter-dayjs-4/dist/chartjs-adapter-dayjs-4.esm';
+// import 'chartjs-adapter-moment';
 import 'chartjs-adapter-date-fns';
+import { InputData, Data } from './types.js'
 
-declare global {
-  interface InputData {
-    settings: Settings,
-    dataseries: Dataseries[]
-  }
-  interface Settings {
-    title: string,
-    subTitle: string,
-  }
-  interface Dataseries {
-    id: string,
-    label: string,
-    seriesOptions: SeriesOptions,
-    data: Data[],
-  }
-  interface SeriesOptions {
-    chartType: 'dots' | 'line',
-    style: Style
-  }
-  interface Style {
-    point: Point,
-    line: Line
-  }
-  interface Point {
-    radius: number,
-    pointStyle: 'circle' | 'cross' | 'crossRot' | 'dash' | 'line' | 'rect' | 'rectRounded' | 'rectRot' | 'star' | 'triangle' | false,
-    backgroundColor: string,
-    borderColor: string,
-    borderWidth: number
-  }
-  interface Line {
-    backgroundColor: string,
-    borderColor: string,
-    borderWidth: number,
-    fill: boolean,
-  }
-  interface Data {
-    x: string,
-    y: number
-  }
-
-}
 export class WidgetLinechart extends LitElement {
   
-  @property() inputData = {} as InputData
+  @property({type: Object}) 
+  inputData = {} as InputData
 
   @state()
   private demoCanvas: HTMLCanvasElement | undefined = undefined;
@@ -56,7 +18,7 @@ export class WidgetLinechart extends LitElement {
   @state()
   private lineTitle: string = 'Line-chart';
   @state()
-  private lineDescription: string = 'This is a Line-chart from the RE-Dahsboard';
+  private lineDescription: string = 'This is a Line-chart from the RE-Dashboard';
   @state()
   private data: Data[] = []
   @state()
@@ -296,11 +258,16 @@ export class WidgetLinechart extends LitElement {
             },
             scales: {
               x: {
-                min: this.minTime ? this.minTime : '2023-06-28T10:20:32.109Z',
+                // min: this.minTime ? this.minTime : '2023-06-28T10:20:32.109Z',
                 type: 'time',
-                ticks: {
-                  stepSize: 10
-                },
+                // adapters: {
+                //   date: {
+                //     locale: enUS, 
+                //   },
+                // },
+                // ticks: {
+                //   stepSize: 10
+                // },
                 position: 'bottom',
                 // time: {
                 //   unit: 'minute'
