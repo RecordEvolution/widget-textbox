@@ -234,7 +234,7 @@ export class WidgetLinechart extends LitElement {
   renderChart() {
     this.demoCanvas = this.shadowRoot?.querySelector('#lineChart') as HTMLCanvasElement;
 		if(!this.demoCanvas) { return }
-
+    console.log('the Data', this.datasets)
     if (!this.chartInstance) {
       this.chartInstance = new Chart(
         this.demoCanvas,
