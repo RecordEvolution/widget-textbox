@@ -24,22 +24,6 @@ export class WidgetLinechart extends LitElement {
   @state()
   private dataSets: Dataseries[] = []
 
-  @state()
-  private resizeObserver: ResizeObserver
-
-  constructor() {
-    super()
-    this.resizeObserver = new ResizeObserver(() => {
-      if (this.chartInstance) this.chartInstance.update('none');
-    })
-  }
-
-  firstUpdated() {
-    const sizer = this.shadowRoot?.getElementById('sizer') as HTMLCanvasElement;
-    if (sizer)
-      this.resizeObserver.observe(sizer)
-  }
-
   updated(changedProperties: Map<string, any>) {
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'inputData') {
@@ -48,7 +32,6 @@ export class WidgetLinechart extends LitElement {
       }
     })
   }
-
 
   applyInputData() {
 
@@ -72,8 +55,8 @@ export class WidgetLinechart extends LitElement {
             showLine: ds.showLine,
             radius: ds.radius,
             pointStyle: ds.pointStyle,
-            backgroundColor: tinycolor(ds.backgroundColor).darken(darker * i).toString(),
-            borderColor: tinycolor(ds.borderColor).darken(darker * i).toString(),
+            backgroundColor: tinycolor(ds.backgroundColor).brighten(darker * i).toString(),
+            borderColor: tinycolor(ds.borderColor).brighten(darker * i).toString(),
             borderWidth: ds.borderWidth,
             borderDash: ds.borderDash,
             fill: ds.fill,
