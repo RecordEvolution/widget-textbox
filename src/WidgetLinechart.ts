@@ -142,7 +142,7 @@ export class WidgetLinechart extends LitElement {
 
         // Style point
         const radius = this.inputData?.dataseries[0].seriesOptions?.style?.point?.radius ?? this.radius
-        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ? this.pointStyle
+        const pointStyle = this.inputData?.dataseries[0].seriesOptions?.style?.point?.pointStyle ?? this.pointStyle
         const pointBackgroundColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.backgroundColor ?? this.pointBackgroundColor
         const pointBorderColor = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderColor ?? this.pointBorderColor
         const pointBorderWidth = this.inputData?.dataseries[0].seriesOptions?.style?.point?.borderWidth ?? this.pointBorderWidth
