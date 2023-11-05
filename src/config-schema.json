@@ -25,74 +25,33 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string"
-                    },
                     "label": {
                         "type": "string"
                     },
-                    "seriesOptions": {
-                        "title": "Series Options",
-                        "description": "This is the Series Options description",
-                        "type": "object",
-                        "properties": {
-                            "chartType": {
-                                "description": "Type of the line chart (point/line)",
-                                "type": "string"
-                            },
-                            "style": {
-                                "title": "Style",
-                                "type": "object",
-                                "properties": {
-                                    "point": {
-                                        "title": "Point",
-                                        "description": "Point style",
-                                        "type": "object",
-                                        "properties": {
-                                            "radius": {
-                                                "description": "Point radius",
-                                                "type": "number",
-                                                "minimum": 1,
-                                                "maximum": 100
-                                            },
-                                            "pointStyle": {
-                                                "type": "string"
-                                            },
-                                            "backgroundColor": {
-                                                "type": "string"
-                                            },
-                                            "borderColor": {
-                                                "type": "string"
-                                            },
-                                            "borderWidth": {
-                                                "type": "number"
-                                            }
-                                        }
-                                    },
-                                    "line": {
-                                        "title": "Line",
-                                        "description": "Line Style",
-                                        "type": "object",
-                                        "properties": {
-                                            "backgroundColor": {
-                                                "type": "string"
-                                            },
-                                            "borderColor": {
-                                                "type": "string"
-                                            },
-                                            "borderWidth": {
-                                                "type": "number"
-                                            },
-                                            "fill": {
-                                                "type": "boolean"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    "showLine": {
+                        "type": "boolean"
                     },
-
+                    "radius": {
+                        "description": "Point radius",
+                        "type": "number",
+                        "minimum": 1,
+                        "maximum": 100
+                    },
+                    "pointStyle": {
+                        "type": "string"
+                    },
+                    "backgroundColor": {
+                        "type": "string"
+                    },
+                    "borderColor": {
+                        "type": "string"
+                    },
+                    "borderWidth": {
+                        "type": "number"
+                    },
+                    "fill": {
+                        "type": "boolean"
+                    },
                     "data": {
                         "title": "Widget data",
                         "description": "This is the Chartdata",
@@ -102,20 +61,20 @@
                             "type": "object",
                             "properties": {
                                 "x": {
-                                    "type": "number"
+                                    "description": "Has to be an ISO String date like 2023-11-04T22:47:52.351152+00:00",
+                                    "type": "string"
                                 },
                                 "y": {
                                     "type": "number"
                                 }
-                            }
-             
-                        },
-                        "required": []
+                            },
+                            "required": ["x", "y"]
+                        }
                     }
                 },
-                "required": []
+                "required": ["label"]
             }
         }
     },
-    "required": []
+    "required": ["settings"]
 }
