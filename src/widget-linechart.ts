@@ -12,9 +12,7 @@ export class WidgetLinechart extends LitElement {
   inputData = {} as InputData
 
   @state()
-  private canvas: HTMLCanvasElement | undefined = undefined;
-  @state()
-  private chartInstance: any | undefined = undefined;
+  private chartInstance: Chart | undefined = undefined;
   @state()
   private lineTitle: string = 'Line-chart';
   @state()
@@ -66,11 +64,11 @@ export class WidgetLinechart extends LitElement {
   }
 
   createChart(datasets: ChartDataset[]) {
-    this.canvas = this.shadowRoot?.querySelector('#lineChart') as HTMLCanvasElement;
-    console.log('Data', datasets)
-		if(!this.canvas ) return
+    const canvas = this.shadowRoot?.querySelector('#lineChart') as HTMLCanvasElement;
+    console.log('Data', datasets, canvas)
+		if(!canvas ) return
       this.chartInstance = new Chart(
-        this.canvas,
+        canvas,
         {
           type: 'line',
           data: {
@@ -96,12 +94,6 @@ export class WidgetLinechart extends LitElement {
                 position: 'bottom',
               },
             },
-            // plugins: {
-            //   title: {
-            //     display: true,
-            //     text: this.inputData.settings.title
-            //   }
-            // }
           },
         }
       );
