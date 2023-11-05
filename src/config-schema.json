@@ -14,6 +14,15 @@
                 },
                 "subTitle": {
                     "type": "string"
+                },
+                "timeseries": {
+                    "type": "boolean"
+                },
+                "xAxisLabel": {
+                    "type": "string"
+                },
+                "yAxisLabel": {
+                    "type": "string"
                 }
             },
             "required": ["title", "subTitle"]
@@ -26,42 +35,72 @@
                 "type": "object",
                 "properties": {
                     "label": {
+                        "title": "Label",
+                        "description": "The name for this data series",
+                        "type": "string"
+                    },
+                    "order": {
+                        "title": "Draw Order",
+                        "description": "Determines the draw order of the series. Lower numbers are drawn on top of higher numbers.",
+                        "type": "number"
+                    },
+                    "type": {
+                        "title": "Drawing Type",
+                        "description": "Can be one of 'bar', 'line'.",
                         "type": "string"
                     },
                     "showLine": {
+                        "title": "Enable Line",
+                        "description": "If you want to see just points, then uncheck this.",
                         "type": "boolean"
                     },
                     "radius": {
-                        "description": "Point radius",
+                        "title": "Point Radius",
+                        "description": "To disable points, set this to 0.",
                         "type": "number",
                         "minimum": 1,
                         "maximum": 100
                     },
                     "pointStyle": {
+                        "title": "Point Style",
+                        "description": "Can be one of 'circle', 'cross', 'crossRot', 'dash', 'line', 'rect', 'rectRounded', 'rectRot', 'star', 'triangle'.",
                         "type": "string"
                     },
                     "backgroundColor": {
+                        "title": "Point or Bar Color",
+                        "description": "The inner color of the bars if you chose Drawing Type 'bar' or the inner colors of the points if you chose Drawing Type 'line'.",
                         "type": "string"
                     },
                     "borderColor": {
+                        "title": "Line Color",
+                        "description": "Give the color as a browser standard form. Either with names like 'red', 'green', etc. or as #de432b34 where two hex digits represent Red Green Blue Opacity in this order.",
                         "type": "string"
                     },
                     "borderWidth": {
+                        "title": "Line Width",
+                        "description": "In case of Drawing Type 'bar' this determines the bar's border line width.",
                         "type": "number"
                     },
+                    "borderDash": {
+                        "title": "Line Dash Style",
+                        "description": "Specify dash length and space-between-dashes length like this: [10, 5].",
+                        "type": "string"
+                    },
                     "fill": {
+                        "title": "Line Area Fill",
+                        "description": "Check this box to turn a line chart into an area chart.",
                         "type": "boolean"
                     },
                     "data": {
-                        "title": "Widget data",
-                        "description": "This is the Chartdata",
+                        "title": "Data",
+                        "description": "The data used to draw this data series.",
                         "type": "array",
                         "buffersize": 1000,
                         "items": {
                             "type": "object",
                             "properties": {
                                 "x": {
-                                    "description": "Has to be an ISO String date like 2023-11-04T22:47:52.351152+00:00",
+                                    "description": "If timeseries is checked in the settings, then this should be an ISO String date like 2023-11-04T22:47:52.351152+00:00. But this works with many other formats as well.",
                                     "type": "string"
                                 },
                                 "y": {
@@ -72,7 +111,7 @@
                         }
                     }
                 },
-                "required": ["label"]
+                "required": ["label", "data"]
             }
         }
     },
