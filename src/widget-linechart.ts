@@ -1,12 +1,13 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import Chart, { ChartDataset, Point } from 'chart.js/auto';
-
+import Chart, { ChartDataset } from 'chart.js/auto';
+// @ts-ignore
+import tinycolor from "tinycolor2";
 // This does not work. See comments at the end of the file.
 // import 'chartjs-adapter-dayjs-4/dist/chartjs-adapter-dayjs-4.esm';
 // import 'chartjs-adapter-moment';
 // import 'chartjs-adapter-date-fns';
-import { InputData } from './types.js'
+import { InputData, Data, Dataseries } from './types.js'
 
 export class WidgetLinechart extends LitElement {
   
@@ -19,6 +20,9 @@ export class WidgetLinechart extends LitElement {
   private lineTitle: string = 'Line-chart';
   @state()
   private lineDescription: string = 'This is a Line-chart from the RE-Dashboard';
+
+  @state()
+  private dataSets: Dataseries[] = []
 
   @state()
   private resizeObserver: ResizeObserver
@@ -45,6 +49,7 @@ export class WidgetLinechart extends LitElement {
     })
   }
 
+
   applyInputData() {
 
     if(!this?.inputData?.settings?.title || !this?.inputData?.dataseries.length) return
@@ -53,17 +58,39 @@ export class WidgetLinechart extends LitElement {
     this.lineDescription = this.inputData.settings.subTitle ?? this.lineDescription
 
     this.inputData.dataseries.forEach(ds => {
-      // @ts-ignore
       if (ds.borderDash) ds.borderDash = JSON.parse(ds.borderDash)
-      // @ts-ignore
-      // ds.data = ds.data.map(({x, y}) => {return {x: new Date(x).getTime(), y}})
-      // ds.parsing = false
+
+      // pivot data
+      const distincts = [...new Set(ds.data.map((d: Data) => d.pivot))]
+      if (distincts.length > 1) {
+        const darker = 100 / distincts.length
+        distincts.forEach((piv, i) => {
+          const pds: any = {
+            label: ds.label + ' ' + piv,
+            order: ds.order,
+            type: ds.type,
+            showLine: ds.showLine,
+            radius: ds.radius,
+            pointStyle: ds.pointStyle,
+            backgroundColor: tinycolor(ds.backgroundColor).darken(darker * i).toString(),
+            borderColor: tinycolor(ds.borderColor).darken(darker * i).toString(),
+            borderWidth: ds.borderWidth,
+            borderDash: ds.borderDash,
+            fill: ds.fill,
+            data: ds.data.filter(d => d.pivot === piv)
+          }
+          this.dataSets.push(pds)
+        })
+      } else {
+        this.dataSets.push(ds)
+      }
 
     })
-    console.log(this.inputData.dataseries)
+    console.log(this.dataSets)
     // update chart info
     if (this.chartInstance) {
-      this.chartInstance.data.datasets = this.inputData.dataseries
+      // @ts-ignore
+      this.chartInstance.data.datasets = this.dataSets
       // @ts-ignore
       this.chartInstance.options.scales.x.type = this.xAxisType()
       this.chartInstance.update('none')
@@ -84,12 +111,14 @@ export class WidgetLinechart extends LitElement {
   createChart() {
     const canvas = this.shadowRoot?.querySelector('#lineChart') as HTMLCanvasElement;
 		if(!canvas ) return
+      // @ts-ignore
       this.chartInstance = new Chart(
         canvas,
         {
           type: 'line',
           data: {
-            datasets: this.inputData.dataseries
+      // @ts-ignore
+            datasets: this.dataSets
           },
           options: {
             responsive: true,

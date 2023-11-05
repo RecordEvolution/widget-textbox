@@ -1,7 +1,7 @@
 {
     "settings": {
-        "title": "A Line Chart Demo",
-        "subTitle": "This the Sub title",
+        "title": "A Chart Demo",
+        "subTitle": "This is a Sub title",
         "timeseries": true,
         "xAxisLabel": "Time",
         "yAxisLabel": "Temperature"
@@ -51,23 +51,33 @@
         "fill": false,
         "data": [{
                 "x": "2023-11-03T22:47:52.351152+00:00",
-                "y": 20
+                "y": 20,
+                "pivot": "Frankfurt"
             },
             {
                 "x": "2023-11-05T17:47:52.351152+00:00",
-                "y": 55
+                "y": 55,
+                "pivot": "Berlin"
             },
             {
                 "x": "2023-11-06T09:47:52.351152+00:00",
-                "y": 60
+                "y": 60,
+                "pivot": "Frankfurt"
             },
             {
                 "x": "2023-11-08T22:47:52.351152+00:00",
-                "y": 1
+                "y": 1,
+                "pivot": "Berlin"
+            },
+            {
+                "x": "2023-11-10T22:47:52.351152+00:00",
+                "y": 9,
+                "pivot": "Berlin"
             },
             {
                 "x": "2023-11-11T22:47:52.351152+00:00",
-                "y": 20
+                "y": 20,
+                "pivot": "Frankfurt"
             }]
     }]
 }
