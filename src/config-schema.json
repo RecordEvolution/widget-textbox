@@ -28,8 +28,7 @@
             "required": ["title", "subTitle"]
         },
         "dataseries": {
-            "title": "Dataseries settings",
-            "description": "Following settings influence the style and data",
+            "title": "Dataseries",
             "type": "array",
             "items": {
                 "type": "object",
@@ -41,7 +40,7 @@
                     },
                     "order": {
                         "title": "Draw Order",
-                        "description": "Determines the draw order of the series. Lower numbers are drawn on top of higher numbers.",
+                        "description": "Determines the draw order of the series. Dataseries with lower numbers are drawn on top of ones with higher numbers.",
                         "type": "number"
                     },
                     "type": {
