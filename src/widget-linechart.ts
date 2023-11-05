@@ -19,64 +19,66 @@ export class WidgetLinechart extends LitElement {
   private lineTitle: string = 'Line-chart';
   @state()
   private lineDescription: string = 'This is a Line-chart from the RE-Dashboard';
-  @state()
-  private datasets: ChartDataset[] = []
 
-  
+  @state()
+  private resizeObserver: ResizeObserver
+
+  constructor() {
+    super()
+    this.resizeObserver = new ResizeObserver(() => {
+      if (this.chartInstance) this.chartInstance.update('none');
+    })
+  }
+
   firstUpdated() {
-    this.applyUserSettings()
-    this.createChart()
+    
+    // this.applyUserSettings()
+    // this.createChart()
+    const sizer = this.shadowRoot?.getElementById('sizer') as HTMLCanvasElement;
+
+    if (sizer)
+      this.resizeObserver.observe(sizer)
   }
 
   updated(changedProperties: Map<string, any>) {
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'inputData') {
-        if (this.inputData.dataseries.length !== this.datasets.length) {
-          this.datasets = []
-          this.applyUserSettings()
-          this.createChart()
-          return
-        }
-        this.updateLineChart(this.inputData)
+        this.applyUserSettings()
         return
       }
     })
-  }
-
-  updateLineChart(inputData: InputData) {
-    for (const dataserie of inputData.dataseries) {
-      const dataset = this.datasets.find((d: any) => d.label === dataserie.label)
-      if (dataset) dataset.data = dataserie?.data
-    }
-    this.chartInstance.update()
   }
 
   applyUserSettings() {
 
     if(!this?.inputData?.settings?.title || !this?.inputData?.dataseries.length) return
 
-    // Generel
     this.lineTitle = this.inputData.settings.title ?? this.lineTitle
     this.lineDescription = this.inputData.settings.subTitle ?? this.lineDescription
 
-    this.datasets = this.inputData.dataseries ?? []
-
+    // update chart info
+    if (this.chartInstance) {
+      this.chartInstance.data.datasets = this.inputData.dataseries
+      this.chartInstance.update()
+    } else {
+      this.createChart(this.inputData.dataseries)
+    }
   }
 
-  createChart() {
+  createChart(datasets: ChartDataset[]) {
     this.canvas = this.shadowRoot?.querySelector('#lineChart') as HTMLCanvasElement;
-    console.log('Data', this.datasets)
+    console.log('Data', datasets)
 		if(!this.canvas ) return
-    if (!this.chartInstance) {
       this.chartInstance = new Chart(
         this.canvas,
         {
           type: 'line',
           data: {
-            datasets: this.datasets
+            datasets: datasets
           },
           options: {
             responsive: true,
+            maintainAspectRatio: false,
             animations: {
               "colors": false,
               "x": false,
@@ -90,44 +92,28 @@ export class WidgetLinechart extends LitElement {
             },
             scales: {
               x: {
-                // min: this.minTime ? this.minTime : '2023-06-28T10:20:32.109Z',
                 type: 'time',
-                // adapters: {
-                //   date: {
-                //     locale: enUS, 
-                //   },
-                // },
-                // ticks: {
-                //   stepSize: 10
-                // },
                 position: 'bottom',
-                // time: {
-                //   unit: 'minute'
-                // }
               },
             },
-            plugins: {
-              title: {
-                display: true,
-                text: this.inputData.settings.title
-              }
-            }
+            // plugins: {
+            //   title: {
+            //     display: true,
+            //     text: this.inputData.settings.title
+            //   }
+            // }
           },
         }
       );
-    } else {
-      this.chartInstance.update()
-    }
   }
 
   static styles = css`
   :host {
-    display: inline-block;
+    display: block;
     color: var(--re-line-text-color, #000);
     font-family: sans-serif;
     padding: 16px;
     box-sizing: border-box;
-    position: relative;
     margin: auto;
   }
 
@@ -138,8 +124,10 @@ export class WidgetLinechart extends LitElement {
     width: 100%;
   }
 
-  canvas {
+  #sizer {
     flex: 1;
+    overflow: hidden;
+    position: relative;
   }
 
   header {
@@ -169,7 +157,9 @@ export class WidgetLinechart extends LitElement {
           <h3>${this.lineTitle}</h3>
           <p>${this.lineDescription}</p>
         </header>
-        <canvas id="lineChart"></canvas>
+        <div id="sizer">
+          <canvas id="lineChart"></canvas>
+        </div>
       </div>
     `;
   }
