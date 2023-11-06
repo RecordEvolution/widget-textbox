@@ -28,7 +28,7 @@
                     "type": "string"
                 }
             },
-            "required": ["title", "subTitle"]
+            "required": []
         },
         "dataseries": {
             "title": "Dataseries",
