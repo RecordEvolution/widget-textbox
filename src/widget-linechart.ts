@@ -19,7 +19,7 @@ export class WidgetLinechart extends LitElement {
   @state()
   private lineTitle: string = 'Line-chart';
   @state()
-  private lineDescription: string = 'This is a Line-chart from the RE-Dashboard';
+  private lineDescription: string = 'This is a Line-chart';
 
   @state()
   private dataSets: Dataseries[] = []
@@ -39,7 +39,7 @@ export class WidgetLinechart extends LitElement {
 
     this.lineTitle = this.inputData.settings.title ?? this.lineTitle
     this.lineDescription = this.inputData.settings.subTitle ?? this.lineDescription
-
+    this.dataSets = []
     this.inputData.dataseries.forEach(ds => {
       if (ds.borderDash) ds.borderDash = JSON.parse(ds.borderDash)
 
@@ -69,7 +69,7 @@ export class WidgetLinechart extends LitElement {
       }
 
     })
-    console.log(this.dataSets)
+    // console.log('linechart datasets', this.dataSets)
     // update chart info
     if (this.chartInstance) {
       // @ts-ignore
