@@ -1,15 +1,15 @@
 {
-  "name": "widget-linechart",
-  "description": "Webcomponent widget-linechart following open-wc recommendations",
+  "name": "widget-textbox",
+  "description": "Webcomponent widget-textbox following open-wc recommendations",
   "license": "MIT",
-  "author": "widget-linechart",
-  "version": "1.4.0",
+  "author": "widget-textbox",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
   "exports": {
     ".": "./dist/src/index.js",
-    "./widget-linechart.js": "./dist/src/widget-linechart.js"
+    "./widget-textbox.js": "./dist/src/widget-textbox.js"
   },
   "scripts": {
     "analyze": "cem analyze --litelement",
@@ -18,15 +18,7 @@
     "prepublish": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "chart.js": "^4.4.0",
-    "chartjs-adapter-date-fns": "^3.0.0",
-    "chartjs-adapter-dayjs-4": "^1.0.4",
-    "chartjs-adapter-moment": "^1.0.1",
-    "date-fns": "^2.30.0",
-    "dayjs": "^1.11.10",
-    "lit": "^3.0.2",
-    "moment": "^2.29.4",
-    "tinycolor2": "^1.6.0"
+    "lit": "^3.0.2"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.9.0",

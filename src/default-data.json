@@ -1,83 +1,11 @@
 {
-    "settings": {
-        "title": "A Chart Demo",
-        "subTitle": "This is a Sub title",
-        "timeseries": true,
-        "xAxisLabel": "Time",
-        "yAxisLabel": "Temperature"
+    "title": {
+        "text": "A Chart Demo"
     },
-    "dataseries": [{
-        "label": "Demo Bar",
-        "type": "bar",
-        "order": 3,
-        "radius": 4,
-        "pointStyle": "rectRounded",
-        "backgroundColor": "#D7BBF5",
-        "borderColor": "#A076F9",
-        "borderWidth": 2,
-        "fill": false,
-        "data": [{
-                "x": "2023-11-04T22:47:52.351152+00:00",
-                "y": 60
-            },
-            {
-                "x": "2023-11-05T22:47:52.351152+00:00",
-                "y": 10
-            },
-            {
-                "x": "2023-11-06T22:47:52.351152+00:00",
-                "y": 6
-            },
-            {
-                "x": "2023-11-07T22:47:52.351152+00:00",
-                "y": 59
-            },
-            {
-                "x": "2023-11-10T22:47:52.351152+00:00",
-                "y": 42
-            }]
+    "subTitle": {
+        "text": "This is a Sub title"
     },
-    {
-        "label": "Demo Line",
-        "type": "line",
-        "order": 2,
-        "showLine": true,
-        "radius": 7,
-        "pointStyle": "rectRounded",
-        "backgroundColor": "#AFF6F9",
-        "borderColor": "#47BBF5bb",
-        "borderWidth": 2,
-        "borderDash": "[10, 10]",
-        "fill": false,
-        "data": [{
-                "x": "2023-11-03T22:47:52.351152+00:00",
-                "y": 20,
-                "pivot": "Frankfurt"
-            },
-            {
-                "x": "2023-11-05T17:47:52.351152+00:00",
-                "y": 55,
-                "pivot": "Berlin"
-            },
-            {
-                "x": "2023-11-06T09:47:52.351152+00:00",
-                "y": 40,
-                "pivot": "Frankfurt"
-            },
-            {
-                "x": "2023-11-08T22:47:52.351152+00:00",
-                "y": 1,
-                "pivot": "Berlin"
-            },
-            {
-                "x": "2023-11-10T22:47:52.351152+00:00",
-                "y": 9,
-                "pivot": "Berlin"
-            },
-            {
-                "x": "2023-11-11T22:47:52.351152+00:00",
-                "y": 20,
-                "pivot": "Frankfurt"
-            }]
-    }]
+    "body": {
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    }
 }

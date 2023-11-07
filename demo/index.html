@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <title>Linechart</title>
+  <title>Textbox</title>
   <style>
     html, body {
       margin: 0;
@@ -10,7 +10,7 @@
       width: 100%;
       height: 100%;
     }
-    widget-linechart, #demo {
+    widget-textbox, #demo {
       width: 100%;
       height: 100%;
     }
@@ -23,18 +23,18 @@
   
   <script type="module">
     import { html, render } from 'lit';
-    import '../dist/src/widget-linechart.js';
+    import '../dist/src/widget-textbox.js';
     import data from '../src/default-data.json' assert { type: 'json' };
     
-    const keyPathsToRandomize = ['dataseries.0.data.4.y', 'settings.title'];
+    const keyPathsToRandomize = ['title.text', 'subTitle.fontWeight'];
     setInterval(() => {
       const randomizedObj = randomizeObjectValues(data, keyPathsToRandomize);
 
       render(
         html`
-          <widget-linechart .inputData=${randomizedObj}>
+          <widget-textbox .inputData=${randomizedObj}>
             some light-dom
-          </widget-linechart>
+          </widget-textbox>
         `,
         document.querySelector('#demo')
       )}
