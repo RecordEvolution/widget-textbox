@@ -45,8 +45,10 @@ export class WidgetLinechart extends LitElement {
 
       // pivot data
       const distincts = [...new Set(ds.data.map((d: Data) => d.pivot))]
+      const derivedBgColors = tinycolor(ds.backgroundColor).monochromatic(distincts.length).map((c: any) => c.toHexString())
+      const derivedBdColors = tinycolor(ds.borderColor).monochromatic(distincts.length).map((c: any) => c.toHexString())
+
       if (distincts.length > 1) {
-        const darker = 100 / distincts.length
         distincts.forEach((piv, i) => {
           const pds: any = {
             label: ds.label + ' ' + piv,
@@ -55,8 +57,8 @@ export class WidgetLinechart extends LitElement {
             showLine: ds.showLine,
             radius: ds.radius,
             pointStyle: ds.pointStyle,
-            backgroundColor: tinycolor(ds.backgroundColor).brighten(darker * i).toString(),
-            borderColor: tinycolor(ds.borderColor).brighten(darker * i).toString(),
+            backgroundColor: derivedBgColors[i],
+            borderColor: derivedBdColors[i],
             borderWidth: ds.borderWidth,
             borderDash: ds.borderDash,
             fill: ds.fill,

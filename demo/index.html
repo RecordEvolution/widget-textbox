@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  <title>Linechart</title>
   <style>
     html, body {
       margin: 0;
@@ -18,10 +19,29 @@
 <body>
   <div id="demo"></div>
 
+  <script src="https://storage.googleapis.com/reswarm-images/ObjectRandomizer.js"></script>
+  
   <script type="module">
     import { html, render } from 'lit';
     import '../dist/src/widget-linechart.js';
     import data from '../src/default-data.json' assert { type: 'json' };
+    
+    // Example usage
+const originalObj = {
+  person: {
+    name: 'John',
+    numbers: [1, 2, 3, 4, 5],
+  },
+  location: {
+    city: 'New Yorddk',
+    state: 'NY',
+  },
+};
+
+const keyPathsToRandomize = ['person.numbers', 'location.city'];
+const randomizedObj = randomizeObjectValues(originalObj, keyPathsToRandomize);
+
+console.log(randomizedObj);
 
     render(
       html`
