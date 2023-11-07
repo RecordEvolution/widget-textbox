@@ -31,12 +31,14 @@ export class WidgetTextbox extends LitElement {
     position: relative;
   }
 
-  h3 {
+  h2 {
     margin: 0;
     padding: 12px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
   }
 
-  h2 {
+  h3 {
     margin: 0;
     padding: 12px;
   }
