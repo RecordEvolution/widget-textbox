@@ -22,6 +22,10 @@
                 "color": {
                     "title": "Font Color",
                     "type": "string"
+                },
+                "backgroundColor": {
+                    "title": "Background Color",
+                    "type": "string"
                 }
             },
             "required": []
@@ -67,6 +71,10 @@
                 },
                 "color": {
                     "title": "Font Color",
+                    "type": "string"
+                },
+                "backgroundColor": {
+                    "title": "Background Color",
                     "type": "string"
                 }
             },

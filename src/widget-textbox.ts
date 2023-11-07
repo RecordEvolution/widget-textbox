@@ -12,10 +12,11 @@ export class WidgetTextbox extends LitElement {
     display: block;
     color: var(--re-line-text-color, #000);
     font-family: sans-serif;
-    padding: 16px;
     box-sizing: border-box;
     margin: auto;
   }
+
+  .paging:not([active]) { display: none !important; }
 
   .wrapper {
     display: flex;
@@ -32,16 +33,38 @@ export class WidgetTextbox extends LitElement {
 
   h3 {
     margin: 0;
+    padding: 12px;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 12px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0px 12px;
   }
 `; 
 
   render() {
     return html`
       <div class="wrapper">
-          <h2 style="font-size: ${this.inputData.title.fontSize}; font-weight: ${this.inputData.title.fontWeight}; color: ${this.inputData.title.color};">${this.inputData.title.text}</h2>
-          <h3 style="font-size: ${this.inputData.subTitle.fontSize}; font-weight: ${this.inputData.subTitle.fontWeight}; color: ${this.inputData.subTitle.color};">${this.inputData.subTitle.text}</h3>
-        <p style="font-size: ${this.inputData.body.fontSize}; font-weight: ${this.inputData.body.fontWeight}; color: ${this.inputData.body.color};">${this.inputData.body.text}</p>
-
+          <h2 class="paging" ?active=${this.inputData.title.text}
+            style="font-size: ${this.inputData.title.fontSize}; 
+              font-weight: ${this.inputData.title.fontWeight}; 
+              color: ${this.inputData.title.color};
+              background-color: ${this.inputData.title.backgroundColor};">
+            ${this.inputData.title.text}
+          </h2>
+          <h3 class="paging" ?active=${this.inputData.subTitle.text}
+            style="font-size: ${this.inputData.subTitle.fontSize}; font-weight: ${this.inputData.subTitle.fontWeight}; color: ${this.inputData.subTitle.color};">
+            ${this.inputData.subTitle.text}
+          </h3>
+          <p class="paging" ?active=${this.inputData.body.text}
+            style="font-size: ${this.inputData.body.fontSize}; font-weight: ${this.inputData.body.fontWeight}; color: ${this.inputData.body.color};">
+            ${this.inputData.body.text}
+          </p>
       </div>
     `;
   }

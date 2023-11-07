@@ -1,6 +1,8 @@
 {
     "title": {
-        "text": "A Chart Demo"
+        "text": "A Chart Demo",
+        "backgroundColor": "#0567ff",
+        "color": "white"
     },
     "subTitle": {
         "text": "This is a Sub title"

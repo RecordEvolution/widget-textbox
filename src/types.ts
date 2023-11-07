@@ -9,4 +9,5 @@ export interface Block {
     fontSize: string,
     fontWeight: string
     color: string
+    backgroundColor: string
 }
