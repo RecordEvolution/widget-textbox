@@ -26,31 +26,19 @@
     import '../dist/src/widget-linechart.js';
     import data from '../src/default-data.json' assert { type: 'json' };
     
-    // Example usage
-const originalObj = {
-  person: {
-    name: 'John',
-    numbers: [1, 2, 3, 4, 5],
-  },
-  location: {
-    city: 'New Yorddk',
-    state: 'NY',
-  },
-};
+    const keyPathsToRandomize = ['dataseries.0.data.4.y', 'settings.title'];
+    setInterval(() => {
+      const randomizedObj = randomizeObjectValues(data, keyPathsToRandomize);
 
-const keyPathsToRandomize = ['person.numbers', 'location.city'];
-const randomizedObj = randomizeObjectValues(originalObj, keyPathsToRandomize);
-
-console.log(randomizedObj);
-
-    render(
-      html`
-        <widget-linechart .inputData=${data}>
-          some light-dom
-        </widget-linechart>
-      `,
-      document.querySelector('#demo')
-    );
+      render(
+        html`
+          <widget-linechart .inputData=${randomizedObj}>
+            some light-dom
+          </widget-linechart>
+        `,
+        document.querySelector('#demo')
+      )}
+      , 1000)
   </script>
 </body>
 </html>

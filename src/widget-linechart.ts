@@ -78,7 +78,7 @@ export class WidgetLinechart extends LitElement {
       this.chartInstance.data.datasets = this.dataSets
       // @ts-ignore
       this.chartInstance.options.scales.x.type = this.xAxisType()
-      this.chartInstance.update('none')
+      this.chartInstance.update('resize')
     } else {
       this.createChart()
     }
@@ -115,7 +115,7 @@ export class WidgetLinechart extends LitElement {
             transitions: {
               "active": {
                 "animation": {
-                  "duration": 0
+                  "duration": 100
                 }
               }
             },
