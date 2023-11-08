@@ -1,4 +1,3 @@
-import type { Point, ChartDataset } from 'chart.js/auto';
 export interface InputData {
     title: Block
     subTitle: Block
