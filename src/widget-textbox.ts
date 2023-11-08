@@ -52,20 +52,20 @@ export class WidgetTextbox extends LitElement {
   render() {
     return html`
       <div class="wrapper">
-          <h2 class="paging" ?active=${this.inputData.title.text}
-            style="font-size: ${this.inputData.title.fontSize}; 
-              font-weight: ${this.inputData.title.fontWeight}; 
-              color: ${this.inputData.title.color};
-              background-color: ${this.inputData.title.backgroundColor};">
-            ${this.inputData.title.text}
+          <h2 class="paging" ?active=${this.inputData?.title?.text}
+            style="font-size: ${this.inputData?.title?.fontSize}; 
+              font-weight: ${this.inputData?.title?.fontWeight}; 
+              color: ${this.inputData?.title?.color};
+              background-color: ${this.inputData?.title?.backgroundColor};">
+            ${this.inputData?.title?.text}
           </h2>
-          <h3 class="paging" ?active=${this.inputData.subTitle.text}
-            style="font-size: ${this.inputData.subTitle.fontSize}; font-weight: ${this.inputData.subTitle.fontWeight}; color: ${this.inputData.subTitle.color};">
-            ${this.inputData.subTitle.text}
+          <h3 class="paging" ?active=${this.inputData?.subTitle?.text}
+            style="font-size: ${this.inputData?.subTitle?.fontSize}; font-weight: ${this.inputData?.subTitle?.fontWeight}; color: ${this.inputData?.subTitle?.color};">
+            ${this.inputData?.subTitle?.text}
           </h3>
-          <p class="paging" ?active=${this.inputData.body.text}
-            style="font-size: ${this.inputData.body.fontSize}; font-weight: ${this.inputData.body.fontWeight}; color: ${this.inputData.body.color};">
-            ${this.inputData.body.text}
+          <p class="paging" ?active=${this.inputData?.body?.text}
+            style="font-size: ${this.inputData?.body?.fontSize}; font-weight: ${this.inputData?.body?.fontWeight}; color: ${this.inputData?.body?.color};">
+            ${this.inputData?.body?.text}
           </p>
       </div>
     `;
