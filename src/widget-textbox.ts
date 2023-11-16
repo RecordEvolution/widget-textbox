@@ -28,8 +28,8 @@ export class WidgetTextbox extends LitElement {
   h2 {
     margin: 0;
     padding: 12px;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
+    /* border-top-right-radius: 12px;
+    border-top-left-radius: 12px; */
   }
 
   h3 {
