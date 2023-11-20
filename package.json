@@ -18,7 +18,7 @@
     "prepublish": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "lit": "^3.0.2"
+    "lit": "^3.1.0"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.9.0",
