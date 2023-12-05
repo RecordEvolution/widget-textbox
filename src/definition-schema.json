@@ -1,6 +1,6 @@
 
 {
-    "title": "Configure the Chart",
+    "title": "Textbox Configuration",
     "type": "object",
     "properties": {
         "title": {
