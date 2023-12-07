@@ -27,8 +27,7 @@
                     "title": "Background Color",
                     "type": "color"
                 }
-            },
-            "required": []
+            }
         },
         "subTitle": {
             "title": "Subtitle Settings",
@@ -50,8 +49,7 @@
                     "title": "Font Color",
                     "type": "color"
                 }
-            },
-            "required": []
+            }
         },
         "body": {
             "title": "Body Settings",
@@ -77,8 +75,7 @@
                     "title": "Background Color",
                     "type": "color"
                 }
-            },
-            "required": []
+            }
         }
     }
 }
