@@ -3,7 +3,7 @@
     "description": "Webcomponent widget-textbox following open-wc recommendations",
     "license": "MIT",
     "author": "widget-textbox",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "type": "module",
     "main": "dist/widget-textbox.js",
     "types": "dist/src/widget-textbox.d.ts",
