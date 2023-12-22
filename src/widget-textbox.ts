@@ -7,6 +7,8 @@ export class WidgetTextbox extends LitElement {
   @property({type: Object}) 
   inputData = {} as InputData
 
+  version: string = 'versionplaceholder'
+
   static styles = css`
   :host {
     display: block;
@@ -68,4 +70,4 @@ export class WidgetTextbox extends LitElement {
     `;
   }
 }
-window.customElements.define('widget-textbox', WidgetTextbox)
+window.customElements.define('widget-textbox-versionplaceholder', WidgetTextbox)
