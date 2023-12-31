@@ -1,4 +1,3 @@
-
 {
     "title": "Textbox Configuration",
     "type": "object",
@@ -26,12 +25,14 @@
                 "color": {
                     "title": "Font Color",
                     "order": 4,
-                    "type": "color"
+                    "type": "color",
+                    "color": true
                 },
                 "backgroundColor": {
                     "title": "Background Color",
                     "order": 5,
-                    "type": "color"
+                    "type": "color",
+                    "color": true
                 }
             }
         },
@@ -58,7 +59,8 @@
                 "color": {
                     "title": "Font Color",
                     "order": 4,
-                    "type": "color"
+                    "type": "color",
+                    "color": true
                 }
             }
         },
@@ -85,12 +87,14 @@
                 "color": {
                     "title": "Font Color",
                     "order": 4,
-                    "type": "color"
+                    "type": "color",
+                    "color": true
                 },
                 "backgroundColor": {
                     "title": "Background Color",
                     "order": 5,
-                    "type": "color"
+                    "type": "color",
+                    "color": true
                 }
             }
         }
