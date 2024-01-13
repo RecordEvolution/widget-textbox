@@ -25,23 +25,23 @@ export class WidgetTextbox extends LitElement {
             flex-direction: column;
             height: 100%;
             width: 100%;
+            padding: 12px;
         }
 
         h2 {
             margin: 0;
-            padding: 12px;
+            padding: 12px 0px;
             color: var(--re-user-h2-color, --re-text-color, #000);
         }
 
         h3 {
             margin: 0;
-            padding: 12px;
+            padding: 12px 0px;
             color: var(--re-user-h3-color, --re-text-color, #000);
         }
 
         p {
             margin: 0;
-            padding: 0px 12px;
             color: var(--re-user-p-color, --re-text-color, #000);
         }
     `
