@@ -30,7 +30,7 @@ export class WidgetTextbox extends LitElement {
 
         h2 {
             margin: 0;
-            padding: 12px 0px;
+            padding: 0px;
             color: var(--re-user-h2-color, --re-text-color, #000);
         }
 
