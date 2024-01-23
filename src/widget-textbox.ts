@@ -26,6 +26,7 @@ export class WidgetTextbox extends LitElement {
             height: 100%;
             width: 100%;
             padding: 12px;
+            box-sizing: border-box;
         }
 
         h2 {
