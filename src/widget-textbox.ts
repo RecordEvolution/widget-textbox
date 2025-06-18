@@ -2,11 +2,35 @@ import { html, css, LitElement } from 'lit'
 import { property, state } from 'lit/decorators.js'
 import { TextboxConfiguration } from './definition-schema.js'
 
+type Theme = {
+    theme_name: string
+    theme_object: any
+}
 export class WidgetTextbox extends LitElement {
     @property({ type: Object })
     inputData?: TextboxConfiguration
 
+    @property({ type: Object })
+    theme?: Theme
+
+    @state() private themeBgColor?: string
+    @state() private themeTitleColor?: string
+    @state() private themeSubtitleColor?: string
+
     version: string = 'versionplaceholder'
+
+    update(changedProperties: Map<string, any>) {
+        if (changedProperties.has('theme')) {
+            const cssTextColor = getComputedStyle(this).getPropertyValue('--re-text-color').trim()
+            const cssBgColor = getComputedStyle(this).getPropertyValue('--re-background-color').trim()
+            this.themeBgColor = cssBgColor || this.theme?.theme_object?.backgroundColor
+            this.themeTitleColor = cssTextColor || this.theme?.theme_object?.title?.textStyle?.color
+            this.themeSubtitleColor =
+                cssTextColor || this.theme?.theme_object?.title?.subtextStyle?.color || this.themeTitleColor
+        }
+
+        super.update(changedProperties)
+    }
 
     static styles = css`
         :host {
@@ -32,53 +56,46 @@ export class WidgetTextbox extends LitElement {
         h2 {
             margin: 0;
             padding: 0px;
-            color: var(--re-user-h2-color, --re-text-color, #000);
         }
 
         h3 {
             margin: 0;
             padding: 12px 0px;
-            color: var(--re-user-h3-color, --re-text-color, #000);
         }
 
         p {
             margin: 0;
-            color: var(--re-user-p-color, --re-text-color, #000);
         }
     `
 
     render() {
-        if (this.inputData?.title?.color)
-            this.style.setProperty('--re-user-h2-color', this.inputData?.title?.color)
-        if (this.inputData?.subTitle?.color)
-            this.style.setProperty('--re-user-h3-color', this.inputData?.subTitle?.color)
-        if (this.inputData?.body?.color)
-            this.style.setProperty('--re-user-p-color', this.inputData?.body?.color)
-
         return html`
-            <div class="wrapper">
+            <div class="wrapper" style="background-color: ${this.themeBgColor}">
                 <h2
                     class="paging"
                     ?active=${this.inputData?.title?.text}
                     style="font-size: ${this.inputData?.title?.fontSize}; 
-              font-weight: ${this.inputData?.title?.fontWeight}; 
-              background-color: ${this.inputData?.title?.backgroundColor};"
+                        font-weight: ${this.inputData?.title?.fontWeight}; 
+                        background-color: ${this.inputData?.title?.backgroundColor};
+                        color: ${this.inputData?.title?.color || this.themeTitleColor};"
                 >
                     ${this.inputData?.title?.text}
                 </h2>
                 <h3
                     class="paging"
                     ?active=${this.inputData?.subTitle?.text}
-                    style="font-size: ${this.inputData?.subTitle?.fontSize}; font-weight: ${this.inputData
-                        ?.subTitle?.fontWeight};"
+                    style="font-size: ${this.inputData?.subTitle?.fontSize}; 
+                        font-weight: ${this.inputData?.subTitle?.fontWeight};
+                        color: ${this.inputData?.subTitle?.color || this.themeSubtitleColor};"
                 >
                     ${this.inputData?.subTitle?.text}
                 </h3>
                 <p
                     class="paging"
                     ?active=${this.inputData?.body?.text}
-                    style="font-size: ${this.inputData?.body?.fontSize}; font-weight: ${this.inputData?.body
-                        ?.fontWeight};"
+                    style="font-size: ${this.inputData?.body?.fontSize}; 
+                        font-weight: ${this.inputData?.body?.fontWeight};
+                        color: ${this.inputData?.body?.color || this.themeTitleColor};"
                 >
                     ${this.inputData?.body?.text}
                 </p>

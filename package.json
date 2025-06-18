@@ -13,29 +13,29 @@
     ],
     "scripts": {
         "analyze": "cem analyze --litelement",
-        "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+        "start": "concurrently -k -r \"npm run watch\" \"wds\"",
         "build": "rollup -c rollup.config.js",
+        "watch": "rollup -w -c rollup.config.js",
         "link": "npm link && cd ../RESWARM/frontend && npm link @record-evolution/widget-textbox",
         "unlink": "npm unlink --global && cd ../RESWARM/frontend && npm unlink @record-evolution/widget-textbox && npm i @record-evolution/widget-textbox",
-        "watch": "rollup -w -c rollup.config.js",
         "types": "cat src/definition-schema.json | json2ts > src/definition-schema.d.ts",
-        "release": "npm version patch --tag-version-prefix='' && git push && git push --tag"
+        "release": "npm run build && npm run types && npm version patch --tag-version-prefix='' && git push && git push --tag"
     },
     "dependencies": {
-        "lit": "^3.1.0"
+        "lit": "^3.3.0"
     },
     "devDependencies": {
-        "@custom-elements-manifest/analyzer": "^0.9.0",
+        "@custom-elements-manifest/analyzer": "^0.10.4",
         "@rollup/plugin-babel": "^6.0.4",
-        "@rollup/plugin-commonjs": "^25.0.7",
-        "@rollup/plugin-node-resolve": "^15.2.3",
-        "@rollup/plugin-replace": "^5.0.5",
-        "@rollup/plugin-typescript": "^11.1.5",
-        "@web/dev-server": "^0.4.0",
-        "concurrently": "^8.2.2",
-        "json-schema-to-typescript": "^13.1.1",
-        "tslib": "^2.6.2",
-        "typescript": "^5.2.2"
+        "@rollup/plugin-commonjs": "^28.0.6",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "@rollup/plugin-replace": "^6.0.2",
+        "@rollup/plugin-typescript": "^12.1.3",
+        "@web/dev-server": "^0.4.6",
+        "concurrently": "^9.1.2",
+        "json-schema-to-typescript": "^15.0.4",
+        "tslib": "^2.8.1",
+        "typescript": "^5.8.3"
     },
     "repository": {
         "type": "git",
