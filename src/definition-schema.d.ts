@@ -11,7 +11,6 @@ export type FontWeight = number;
 export type Text1 = string;
 export type FontSize1 = string;
 export type FontWeight1 = number;
-export type Text2 = string;
 export type FontSize2 = string;
 export type FontWeight2 = number;
 
@@ -51,6 +50,9 @@ export interface BodySettings {
   fontWeight?: FontWeight2;
   color?: FontColor2;
   backgroundColor?: BackgroundColor1;
+  [k: string]: unknown;
+}
+export interface Text2 {
   [k: string]: unknown;
 }
 export interface FontColor2 {
