@@ -73,6 +73,7 @@ export class WidgetTextbox extends LitElement {
 
         p {
             margin: 0;
+            white-space: pre-wrap; /* render \n as line breaks and wrap long lines */
         }
     `
 
@@ -98,15 +99,14 @@ export class WidgetTextbox extends LitElement {
                 >
                     ${this.inputData?.subTitle?.text}
                 </h3>
+                <!-- prettier-ignore -->
                 <p
                     class="paging"
                     ?active=${this.inputData?.body?.text}
                     style="font-size: ${this.inputData?.body?.fontSize}; 
                         font-weight: ${this.inputData?.body?.fontWeight};
                         color: ${this.inputData?.body?.color || this.themeTitleColor};"
-                >
-                    ${this.inputData?.body?.text}
-                </p>
+                >${this.inputData?.body?.text}</p>
             </div>
         `
     }

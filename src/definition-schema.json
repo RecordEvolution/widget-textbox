@@ -76,7 +76,7 @@
                 "text": {
                     "title": "Text",
                     "order": 1,
-                    "type": "string"
+                    "type": "textarea"
                 },
                 "fontSize": {
                     "title": "Font Size",
