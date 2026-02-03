@@ -1,37 +1,44 @@
 {
     "title": "Textbox Configuration",
+    "description": "A rich text display widget with three configurable sections: title, subtitle, and body. Use this widget for displaying formatted text content with full control over typography and colors. Each section supports independent styling including font size, weight, and colors. Text can be static or data-driven from backend sources. Ideal for dashboard headers, information panels, status messages, descriptions, labels, or any scenario requiring styled text display without interactive elements. The body section supports multi-line text via textarea input.",
     "type": "object",
     "properties": {
         "title": {
             "title": "Title Settings",
+            "description": "Configuration for the main title text section. Displayed prominently at the top of the widget.",
             "order": 1,
             "type": "object",
             "properties": {
                 "text": {
                     "title": "Text",
+                    "description": "The title text content to display. Can be bound to data sources for dynamic text.",
                     "order": 1,
                     "type": "string"
                 },
                 "fontSize": {
                     "title": "Font Size",
+                    "description": "CSS font size for the title (e.g., '24px', '1.5rem', '2em'). Larger sizes recommended for titles.",
                     "order": 2,
                     "dataDrivenDisabled": true,
                     "type": "string"
                 },
                 "fontWeight": {
                     "title": "Font Weight",
+                    "description": "Numeric font weight from 100 (thin) to 900 (black). Common values: 400 (normal), 700 (bold).",
                     "order": 3,
                     "dataDrivenDisabled": true,
                     "type": "number"
                 },
                 "color": {
                     "title": "Font Color",
+                    "description": "Text color for the title. Use the color picker or enter a CSS color value.",
                     "order": 4,
                     "type": "color",
                     "color": true
                 },
                 "backgroundColor": {
                     "title": "Background Color",
+                    "description": "Background color behind the title section. Useful for creating visual emphasis or section separation.",
                     "order": 5,
                     "type": "color",
                     "color": true
@@ -40,28 +47,33 @@
         },
         "subTitle": {
             "title": "Subtitle Settings",
+            "description": "Configuration for the subtitle text section. Displayed below the title, typically in a smaller or lighter style.",
             "type": "object",
             "order": 2,
             "properties": {
                 "text": {
                     "title": "Text",
+                    "description": "The subtitle text content to display. Often used for secondary information, dates, or context.",
                     "order": 1,
                     "type": "string"
                 },
                 "fontSize": {
                     "title": "Font Size",
+                    "description": "CSS font size for the subtitle (e.g., '14px', '0.9rem'). Typically smaller than the title.",
                     "order": 2,
                     "dataDrivenDisabled": true,
                     "type": "string"
                 },
                 "fontWeight": {
                     "title": "Font Weight",
+                    "description": "Numeric font weight from 100 (thin) to 900 (black). Common values: 400 (normal), 300 (light).",
                     "order": 3,
                     "dataDrivenDisabled": true,
                     "type": "number"
                 },
                 "color": {
                     "title": "Font Color",
+                    "description": "Text color for the subtitle. Often a muted or lighter shade compared to the title.",
                     "order": 4,
                     "type": "color",
                     "color": true
@@ -70,34 +82,40 @@
         },
         "body": {
             "title": "Body Settings",
+            "description": "Configuration for the main body text section. Supports multi-line text content for longer descriptions or messages.",
             "order": 3,
             "type": "object",
             "properties": {
                 "text": {
                     "title": "Text",
+                    "description": "The body text content to display. Supports multi-line text input. Can contain detailed descriptions, instructions, or dynamic data.",
                     "order": 1,
                     "type": "textarea"
                 },
                 "fontSize": {
                     "title": "Font Size",
+                    "description": "CSS font size for the body text (e.g., '16px', '1rem'). Standard readable sizes recommended.",
                     "order": 2,
                     "dataDrivenDisabled": true,
                     "type": "string"
                 },
                 "fontWeight": {
                     "title": "Font Weight",
+                    "description": "Numeric font weight from 100 (thin) to 900 (black). 400 (normal) recommended for body text readability.",
                     "order": 3,
                     "dataDrivenDisabled": true,
                     "type": "number"
                 },
                 "color": {
                     "title": "Font Color",
+                    "description": "Text color for the body content.",
                     "order": 4,
                     "type": "color",
                     "color": true
                 },
                 "backgroundColor": {
                     "title": "Background Color",
+                    "description": "Background color behind the body section. Can be used to create visual distinction from other sections.",
                     "order": 5,
                     "type": "color",
                     "color": true

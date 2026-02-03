@@ -4,6 +4,10 @@
     "license": "MIT",
     "author": "widget-textbox",
     "version": "1.1.8",
+    "engines": {
+        "node": ">=24.9.0",
+        "npm": ">=10.0.2"
+    },
     "type": "module",
     "main": "dist/widget-textbox.js",
     "types": "dist/src/widget-textbox.d.ts",
