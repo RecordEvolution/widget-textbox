@@ -5,21 +5,51 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * The title text content to display. Can be bound to data sources for dynamic text.
+ */
 export type Text = string;
+/**
+ * CSS font size for the title (e.g., '24px', '1.5rem', '2em'). Larger sizes recommended for titles.
+ */
 export type FontSize = string;
+/**
+ * Numeric font weight from 100 (thin) to 900 (black). Common values: 400 (normal), 700 (bold).
+ */
 export type FontWeight = number;
+/**
+ * The subtitle text content to display. Often used for secondary information, dates, or context.
+ */
 export type Text1 = string;
+/**
+ * CSS font size for the subtitle (e.g., '14px', '0.9rem'). Typically smaller than the title.
+ */
 export type FontSize1 = string;
+/**
+ * Numeric font weight from 100 (thin) to 900 (black). Common values: 400 (normal), 300 (light).
+ */
 export type FontWeight1 = number;
+/**
+ * CSS font size for the body text (e.g., '16px', '1rem'). Standard readable sizes recommended.
+ */
 export type FontSize2 = string;
+/**
+ * Numeric font weight from 100 (thin) to 900 (black). 400 (normal) recommended for body text readability.
+ */
 export type FontWeight2 = number;
 
+/**
+ * A rich text display widget with three configurable sections: title, subtitle, and body. Use this widget for displaying formatted text content with full control over typography and colors. Each section supports independent styling including font size, weight, and colors. Text can be static or data-driven from backend sources. Ideal for dashboard headers, information panels, status messages, descriptions, labels, or any scenario requiring styled text display without interactive elements. The body section supports multi-line text via textarea input.
+ */
 export interface TextboxConfiguration {
   title?: TitleSettings;
   subTitle?: SubtitleSettings;
   body?: BodySettings;
   [k: string]: unknown;
 }
+/**
+ * Configuration for the main title text section. Displayed prominently at the top of the widget.
+ */
 export interface TitleSettings {
   text?: Text;
   fontSize?: FontSize;
@@ -28,12 +58,21 @@ export interface TitleSettings {
   backgroundColor?: BackgroundColor;
   [k: string]: unknown;
 }
+/**
+ * Text color for the title. Use the color picker or enter a CSS color value.
+ */
 export interface FontColor {
   [k: string]: unknown;
 }
+/**
+ * Background color behind the title section. Useful for creating visual emphasis or section separation.
+ */
 export interface BackgroundColor {
   [k: string]: unknown;
 }
+/**
+ * Configuration for the subtitle text section. Displayed below the title, typically in a smaller or lighter style.
+ */
 export interface SubtitleSettings {
   text?: Text1;
   fontSize?: FontSize1;
@@ -41,9 +80,15 @@ export interface SubtitleSettings {
   color?: FontColor1;
   [k: string]: unknown;
 }
+/**
+ * Text color for the subtitle. Often a muted or lighter shade compared to the title.
+ */
 export interface FontColor1 {
   [k: string]: unknown;
 }
+/**
+ * Configuration for the main body text section. Supports multi-line text content for longer descriptions or messages.
+ */
 export interface BodySettings {
   text?: Text2;
   fontSize?: FontSize2;
@@ -52,12 +97,21 @@ export interface BodySettings {
   backgroundColor?: BackgroundColor1;
   [k: string]: unknown;
 }
+/**
+ * The body text content to display. Supports multi-line text input. Can contain detailed descriptions, instructions, or dynamic data.
+ */
 export interface Text2 {
   [k: string]: unknown;
 }
+/**
+ * Text color for the body content.
+ */
 export interface FontColor2 {
   [k: string]: unknown;
 }
+/**
+ * Background color behind the body section. Can be used to create visual distinction from other sections.
+ */
 export interface BackgroundColor1 {
   [k: string]: unknown;
 }
