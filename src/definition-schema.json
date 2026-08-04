@@ -1,6 +1,20 @@
 {
     "title": "Textbox Configuration",
     "description": "A rich text display widget with three configurable sections: title, subtitle, and body. Use this widget for displaying formatted text content with full control over typography and colors. Each section supports independent styling including font size, weight, and colors. Text can be static or data-driven from backend sources. Ideal for dashboard headers, information panels, status messages, descriptions, labels, or any scenario requiring styled text display without interactive elements. The body section supports multi-line text via textarea input.",
+    "aiSelection": {
+        "dataShape": "Three independently styled text sections — title, subTitle and body — each either static or bound to a data value. The body accepts multi-line text. No markup is interpreted.",
+        "useWhen": [
+            "A panel needs a heading, a subheading and body text with typography controlled per section.",
+            "An information block, description or status message should be styled without writing Markdown.",
+            "The text is partly static and partly data-driven, and the sections should be coloured or sized differently."
+        ],
+        "notFor": [
+            "One line of text — use widget-label.",
+            "Markup: lists, links, tables, code, or several interpolated values in running prose — use widget-markdown.",
+            "Numbers that should read as figures with units — use widget-value.",
+            "A transient message about something that just happened — use widget-toast."
+        ]
+    },
     "type": "object",
     "properties": {
         "title": {
