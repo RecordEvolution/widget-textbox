@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm start` — runs `watch` and `@web/dev-server` concurrently; serves `demo/index.html` (open `/demo/`).
 - `npm run types` — regenerate `src/definition-schema.d.ts` from `src/definition-schema.json` via `json2ts`. Run after editing the schema.
 - `npm run analyze` — produce custom-elements manifest (LitElement preset).
-- `npm run release` — build, regenerate types, `npm version patch` (no `v` prefix), push tags. Tag push triggers `.github/workflows/build-publish.yml` to publish to npm.
+- `npm run release` — `npm version patch`: preflight guards (on `main`, clean tree, not behind `origin/main`, generated files current, build passes), then commit, bare-semver tag, `git push --follow-tags`, then waits on the CI run and fails if the npm publish fails. `npm run release:minor` / `release:major` for other bumps.
 - No tests or linter are configured.
 
 Requires Node `>=24.9.0`, npm `>=10.0.2`.
