@@ -22,7 +22,7 @@ This is a single LitElement web component (`@record-evolution/widget-textbox`) u
 
 **Platform integration contract:** the component receives two reactive properties from the host:
 - `inputData: TextboxConfiguration` — typed by `src/definition-schema.d.ts`, generated from `src/definition-schema.json`. The JSON schema is the source of truth: the platform's tile editor renders form controls from it (`order`, `dataDrivenDisabled`, custom `type: "color"` / `"textarea"`), and fields can be bound to backend data sources unless `dataDrivenDisabled` is set.
-- `theme: { theme_name, theme_object }` — applied in `registerTheme()`. CSS custom properties `--re-text-color` and `--re-tile-background-color` from the host take precedence over `theme_object` values; user-configured colors in `inputData` then take precedence over the theme.
+- `theme: { theme_name, theme_object }` — applied in `registerTheme()`. CSS custom properties `--re-text-color` and `--re-tile-background-color` from the host take precedence over `theme_object` values; user-configured colors in `inputData` then take precedence over the theme. These are not snapshotted: `registerTheme()` stores a `var(--re-…, <theme value>)` chain, so a change to the host property repaints the tile live without the widget being told.
 
 **Build pipeline:** Rollup with `typescript`, `node-resolve`, `commonjs`, `babel` (bundled helpers), `replace` for the version placeholder. Output is a single ESM bundle at `dist/widget-textbox.js` with sourcemaps. `treeshake.moduleSideEffects: false` is set — be careful adding modules with side effects.
 
