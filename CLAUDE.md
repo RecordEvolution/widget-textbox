@@ -16,7 +16,7 @@ Requires Node `>=24.9.0`, npm `>=10.0.2`.
 
 ## Architecture
 
-This is a single LitElement web component (`@record-evolution/widget-textbox`) used as a tile in the IronFlock/RESWARM dashboard platform. The repo follows the same pattern as the sibling `widget-*` packages in `ironflock-widgets/`.
+This is a single LitElement web component (`@ironflock/widget-textbox`) used as a tile in the IronFlock/RESWARM dashboard platform. The repo follows the same pattern as the sibling `widget-*` packages in `ironflock-widgets/`.
 
 **Entry point:** `src/widget-textbox.ts` defines `WidgetTextbox` and registers it as `widget-textbox-versionplaceholder`. The literal string `versionplaceholder` is replaced at build time by `@rollup/plugin-replace` with the `package.json` version, so each published build registers a uniquely versioned custom-element tag. The host application (RESWARM frontend) reads the version from the package and instantiates the matching tag — see `demo/index.html` for the pattern (`unsafeStatic` with the version-suffixed tag name).
 
