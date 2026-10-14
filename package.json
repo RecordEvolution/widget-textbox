@@ -50,14 +50,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/RecordEvolution/widget-textbox.git"
+        "url": "git+https://github.com/IronFlock/widget-textbox.git"
     },
     "keywords": [
         "widget",
         "textbox"
     ],
     "bugs": {
-        "url": "https://github.com/RecordEvolution/widget-textbox/issues"
+        "url": "https://github.com/IronFlock/widget-textbox/issues"
     },
-    "homepage": "https://github.com/RecordEvolution/widget-textbox#readme"
+    "homepage": "https://github.com/IronFlock/widget-textbox#readme"
 }
