@@ -13,7 +13,6 @@ export class WidgetTextbox extends LitElement {
     @property({ type: Object })
     theme?: Theme
 
-    @state() private themeBgColor?: string
     @state() private themeTitleColor?: string
     @state() private themeSubtitleColor?: string
 
@@ -32,7 +31,6 @@ export class WidgetTextbox extends LitElement {
     }
 
     registerTheme(theme?: Theme) {
-        this.themeBgColor = `var(--re-tile-background-color, ${this.theme?.theme_object?.backgroundColor || 'transparent'})`
         this.themeTitleColor = `var(--re-text-color, ${this.theme?.theme_object?.title?.textStyle?.color || 'inherit'})`
         this.themeSubtitleColor = `var(--re-text-color, ${this.theme?.theme_object?.title?.subtextStyle?.color || this.theme?.theme_object?.title?.textStyle?.color || 'inherit'})`
     }
@@ -76,7 +74,7 @@ export class WidgetTextbox extends LitElement {
 
     render() {
         return html`
-            <div class="wrapper" style="background-color: ${this.themeBgColor}">
+            <div class="wrapper">
                 <h2
                     class="paging"
                     ?active=${this.inputData?.title?.text}
